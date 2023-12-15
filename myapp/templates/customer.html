@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+    <b>{{d.title}}</b><br>
+    {{d.Full name}}<br>
+    {{d.Last name}}<br>
+    {{d.Phone}}<br>
+    {{d.Email}}<br>
+    {{d.password}}<br>
+    </div>
+    <form action="{% url 'myapp:customer' c.id c.slug %}" method="post">
+        {% csrf_token %}
+        {{ f }}
+        <input type="submit" value="Add to Cart">
+    </form>
+    </div>
+    <input type="submit" >
+</form>
+{% endblock %}

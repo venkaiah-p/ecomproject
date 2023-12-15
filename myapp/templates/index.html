@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="row">
+      {% for i in p %}
+      <div class="col-md-3 mb-3">
+        <div class="card">
+              <img src="{{i.img.url}}" width="150" height="150"><br>
+              <div class="card-body">
+                {% if i.product_available is True %}
+                </a><h5 class="card-title"><a href="{% url 'myapp:detail' i.id i.slug %}"><b>{{i.title}}</b></a></h5>
+                ⟨₹⟩{{i.price}}
+                <br><br><br>
+                {% else %}   
+                <b>Out Of Stock</b>
+                {% endif %}
+              </div>
+            </div> 
+          </div>
+  
+      {% endfor %} <br><br> 
+        </div>
+
+
+  </div>
+  
+  {% endblock %}
+</div>
